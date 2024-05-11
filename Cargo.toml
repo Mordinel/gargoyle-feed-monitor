@@ -1,6 +1,18 @@
 [package]
-name = "gargoyle-rss-notifier"
+name = "gargoyle-rss-monitor"
 version = "0.1.0"
 edition = "2021"
+authors = ["Mason Soroka-Gill <Mordinel@pm.me>"]
+repository = "https://github.com/Mordinel/gargoyle-rss-monitor"
+description = "RSS notifier for https://github.com/Mordinel/gargoyle"
+readme = "README.md"
+license = "Apache-2.0"
+
+[profile.release]
+opt-level = 3
+strip = true
+lto = "fat"
 
 [dependencies]
+gargoyle = "0.1.5"
+log = "0.4.21"
