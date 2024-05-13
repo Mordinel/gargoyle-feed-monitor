@@ -119,13 +119,11 @@ impl WebFeedUpdate {
 
         let new_entries: Vec<&Entry> = new_entries.collect();
         if new_entries.is_empty() {
-            log::info!(
-                "No new feed entries on {} since {}",
-                self.url,
-                last_updated,
-            );
+            log::info!("No new feed entries on {} since {}", self.url, last_updated);
             return Action::Nothing;
         }
+
+        log::info!("Found {} new entries for {}", new_entries.len(), self.url);
 
         let mut message = String::from("New entries in feed:\r\n");
         for entry in new_entries {
