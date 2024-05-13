@@ -1,10 +1,10 @@
 [package]
-name = "gargoyle-rss-monitor"
+name = "gargoyle-feed-monitor"
 version = "0.1.0"
 edition = "2021"
 authors = ["Mason Soroka-Gill <Mordinel@pm.me>"]
 repository = "https://github.com/Mordinel/gargoyle-rss-monitor"
-description = "RSS notifier for https://github.com/Mordinel/gargoyle"
+description = "Feed notifier for https://github.com/Mordinel/gargoyle"
 readme = "README.md"
 license = "Apache-2.0"
 
@@ -14,5 +14,9 @@ strip = true
 lto = "fat"
 
 [dependencies]
+bytes = "1.6.0"
+chrono = "0.4.38"
+feed-rs = "1.5.2"
 gargoyle = "0.1.5"
 log = "0.4.21"
+reqwest = { version = "0.12.4", features = ["blocking"] }
