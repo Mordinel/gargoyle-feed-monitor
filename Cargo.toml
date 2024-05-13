@@ -1,6 +1,6 @@
 [package]
 name = "gargoyle-feed-monitor"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Mason Soroka-Gill <Mordinel@pm.me>"]
 repository = "https://github.com/Mordinel/gargoyle-rss-monitor"
