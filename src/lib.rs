@@ -26,28 +26,35 @@ impl Monitor for WebFeedUpdate {
 }
 
 impl WebFeedUpdate {
-    pub fn new(url: &str) -> Self {
+    pub fn new(url: &str) -> Result<Self, String> {
         let web_client = Client::builder()
             .user_agent("Gargoyle/0.1")
-            .build()
-            .unwrap();
-        Self {
+            .build();
+        if let Err(e) = web_client {
+            return Err(format!("{e}"));
+        }
+        let web_client = web_client.unwrap();
+
+        Ok(Self {
             url: url.to_string(),
             web_client,
             last_updated: None,
-        }
+        })
     }
 
-    pub fn with_user_agent(url: &str, user_agent: &str) -> Self {
+    pub fn with_user_agent(url: &str, user_agent: &str) -> Result<Self, String> {
         let web_client = Client::builder()
             .user_agent(user_agent)
-            .build()
-            .unwrap();
-        Self {
+            .build();
+        if let Err(e) = web_client {
+            return Err(format!("{e}"));
+        }
+        let web_client = web_client.unwrap();
+        Ok(Self {
             url: url.to_string(),
             web_client,
             last_updated: None,
-        }
+        })
     }
 
     pub fn with_client(url: &str, web_client: Client) -> Self {
