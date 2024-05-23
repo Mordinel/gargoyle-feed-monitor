@@ -15,8 +15,6 @@ pub struct WebFeedUpdate {
 
 impl Monitor for WebFeedUpdate {
     fn check(&mut self) -> Action {
-        log::info!("Checking feed {}", self.url);
-
         let feed_bytes = self.get_feed_bytes();
         if feed_bytes.is_none() {
             return Action::Nothing;
