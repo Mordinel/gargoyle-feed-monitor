@@ -114,8 +114,8 @@ impl WebFeedUpdate {
         self.last_updated = feed.updated;
 
         let new_entries = feed.entries.iter()
-            .filter(|entry| entry.published.is_some())
-            .filter(|entry| entry.published.unwrap() >= last_updated);
+            .filter(|entry| entry.updated.is_some())
+            .filter(|entry| entry.updated.unwrap() > last_updated);
 
         let new_entries: Vec<&Entry> = new_entries.collect();
         if new_entries.is_empty() {
