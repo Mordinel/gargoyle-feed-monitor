@@ -4,7 +4,7 @@ use std::{thread::sleep, time::Duration};
 
 fn main() {
     let stdout_notifier = Stdout;
-    let mut rss_monitor = WebFeedUpdate::new("http://lorem-rss.herokuapp.com/feed?unit=second&interval=10");
+    let mut rss_monitor = WebFeedUpdate::new("http://lorem-rss.herokuapp.com/feed?unit=second&interval=10").unwrap();
     let mut schedule = Schedule::default();
     schedule.add(
         &format!("An update from the feed"),
